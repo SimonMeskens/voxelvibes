@@ -1,0 +1,106 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    background: #000;
+    font-family: sans-serif;
+}
+
+#scene {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+#crosshair {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin: -3px 0 0 -3px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+}
+
+#performance {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font: 14px/1.5 monospace;
+}
+
+#performance-details {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 200ms ease;
+}
+
+#performance-details.expanded {
+    grid-template-rows: 1fr;
+}
+
+.performance-details-content {
+    min-height: 0;
+    overflow: hidden;
+}
+
+#performance-toggle {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2px;
+    border: 0;
+    color: inherit;
+    background: transparent;
+    cursor: pointer;
+}
+
+#performance-toggle svg {
+    transition: transform 200ms ease;
+}
+
+#performance-toggle[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+}
+
+#performance-toggle:focus-visible {
+    outline: 2px solid white;
+    outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #performance-details, #performance-toggle svg {
+        transition: none;
+    }
+}
+
+#error:not([hidden]) {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    background: #8b2020;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+#hint {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    pointer-events: none;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voxel</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <script type="module" src="./scripts/main.js"></script>
+</head>
+<body>
+    <canvas id="scene"></canvas>
+    <div id="crosshair"></div>
+    <div id="performance" aria-label="Performance">
+        <div>Frames: <span id="fps">--</span> f/s (1% low: <span id="fps-low">--</span>)</div>
+        <div>Chunks: <span id="chunk-rate">--</span> c/s</div>
+        <div>Rendered chunks: <span id="rendered-chunks">--</span></div>
+        <div>Render distance: <span id="render-distance">--</span> blocks</div>
+        <div id="performance-details" inert>
+            <div class="performance-details-content">
+                <div>Position x / y / z: <span id="camera-position">--</span></div>
+                <div>Frame avg / p95: <span id="frame-times">--</span></div>
+                <div>Terrain / mesh: <span id="worker-times">--</span></div>
+                <div>Queue pending / in flight: <span id="queue-size">--</span></div>
+                <div>Loaded chunks: <span id="loaded-chunks">--</span></div>
+                <div>Draw calls: <span id="draw-calls">--</span></div>
+                <div>Triangles: <span id="triangles">--</span></div>
+                <div>Chunk buffers: <span id="buffer-memory">--</span></div>
+                <div>GPU render pass: <span id="gpu-time">--</span></div>
+            </div>
+        </div>
+        <button id="performance-toggle" type="button" aria-label="Toggle performance details"
+                aria-controls="performance-details" aria-expanded="false">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path d="M5 9l7 7 7-7" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+    <div id="error" role="alert" hidden></div>
+    <div id="hint" role="status">Click to look &middot; WASD to move &middot; Space to jump &middot; Double Space to fly &middot; Space / Shift to ascend / descend &middot; Right-click to teleport &middot; M for map</div>
+</body>
+</html>
